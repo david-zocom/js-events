@@ -56,6 +56,11 @@ function mouseEventCallback(event) {
 
 function keyEventCallback(event) {
 	console.log(`A key event occurred. Type: ${event.type}, key: ${event.key}.`);
+	const forbiddenLetters = 'åäö';
+	if( forbiddenLetters.includes(event.key.toLowerCase()) ) {
+		console.log('You are not allowed to type ' + forbiddenLetters);
+		event.preventDefault();
+	}
 }
 
 
