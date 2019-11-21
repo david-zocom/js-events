@@ -20,10 +20,43 @@ function whenLoaded() {
 		console.log(el.innerText);
 		console.log(el.children);
 	}
+
+	let mouseDivs = document.getElementsByClassName('mouse-events');
+	let mouseDiv = mouseDivs[0];
+	console.log('Preparing mouse events! ', mouseDiv);
+
+	mouseDiv.addEventListener('click', mouseEventCallback);
+	mouseDiv.addEventListener('mouseenter', mouseEventCallback);
+	mouseDiv.addEventListener('mouseleave', mouseEventCallback);
+	// mouseDiv.addEventListener('mousemove', mouseEventCallback);
+
+	let inputKey = document.getElementById('inputKeyEvents');
+	inputKey.addEventListener('keydown', keyEventCallback);
+	inputKey.addEventListener('keypress', keyEventCallback);
+	inputKey.addEventListener('keyup', keyEventCallback);
+
+	let inputFocus = document.querySelector('#focusEvent');
+	inputFocus.addEventListener('focus', e => {
+		console.log('Focused!');
+	})
+	inputFocus.addEventListener('blur', e => {
+		console.log('Blurred!');
+	})
+
+	let inputChange = document.querySelector('#changeEvent');
+	inputChange.addEventListener('change', e => {
+		console.log(`Input CHANGED. value=${e.target.value}.`, e);
+	})
 }
 
 
+function mouseEventCallback(event) {
+	console.log('A mouse event has occurred!', event.type);//, event);
+}
 
+function keyEventCallback(event) {
+	console.log(`A key event occurred. Type: ${event.type}, key: ${event.key}.`);
+}
 
 
 

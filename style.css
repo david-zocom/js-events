@@ -1,3 +1,11 @@
 body {
     background-color: aliceblue;
 }
+
+.mouse-events {
+	border: 1px solid blue;
+	background-color: aquamarine;
+}
+.mouse-events:hover {
+	cursor: pointer;
+}
